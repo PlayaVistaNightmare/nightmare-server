@@ -11,7 +11,7 @@ app.get('/', function (req, res) {
   res.send('Hello World!')
 })
 
-app.get('/api/:chunkId', clueController.getChunk)
+app.get('/api/clue/:chunkId', clueController.getChunk)
 app.post('/api/clue', clueController.newClue)
 app.get('/api/clue/all', clueController.getAllClues)
 app.delete('/api/clue/:id', clueController.deleteClue)

@@ -13,7 +13,9 @@ const clueSchema = new Schema({
   long: Number,
   lat: Number,
   place_name: String,
-  radius: Number
+  radius: Number,
+  created_at: {type: Date, default: Date.now}
 })
 
 module.exports = mongoose.model('Clue', clueSchema);
+
