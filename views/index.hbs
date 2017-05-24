@@ -1,0 +1,68 @@
+<html>
+  <head>
+    <title>Nightmare Clue Manager</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body>
+    <h1><center>Manage All The Clues!</center></h1>
+
+    <div class="container">
+        {{#each clues}}
+          <div class="clue panel panel-default row">
+            <div class="col-md-6">
+              <p><span>Place Name: </span>{{this.place_name}}</p>
+              <p><span>Description: </span>{{this.description}}</p>
+              <p><span>Lat: </span>{{this.lat}}</p>
+              <p><span>Long: </span>{{this.long}}</p>
+              <p><span>Radius: </span>{{this.radius}}</p>
+              <p><span>Time: </span>{{this.created_at}}</p>
+              <p><a class="btn btn-danger" href="/delete/{{this._id}}">Delete</a></p>
+            </div>
+            
+            <div class="col-md-6">
+              <img class="img-thumbnail" src="//maps.googleapis.com/maps/api/staticmap?center={{this.lat}},{{this.long}}&markers=color:red%7C{{this.lat}},{{this.long}}&zoom=14&size=300x300" alt="map">
+              
+            </div>
+
+          </div>
+        {{/each}}
+
+      <div class="clue panel panel-default">
+        <form action="/create" method="post">
+          <div class="form-group">
+            <label>Place Name</label>
+            <input class="form-control" name="place_name">{{this.place_name}}</input>
+          </div>
+          <div class="form-group">
+            <label>Description</label>
+            <input class="form-control" name="description">{{this.description}}</input>
+          </div>
+          <div class="form-group">
+            <label>Lat</label>
+            <input class="form-control" name="lat">{{this.lat}}</input>
+          </div>
+          <div class="form-group">
+            <label>Long</label>
+            <input class="form-control" name="long">{{this.long}}</input>
+          </div>
+          <div class="form-group">
+            <label>Radius</label>
+            <input class="form-control" name="radius">{{this.radius}}</input>
+          </div>
+          <input class="btn btn-success" type="submit" value="Submit">
+        </form>
+      </div>
+    </div>
+
+    <style>
+      .clue {
+        margin: 25px;
+        padding: 15px;
+      }
+      span, label {
+        font-weight: bold;
+      }
+    </style>
+
+  </body>
+</html>
