@@ -1,0 +1,3 @@
+module.exports = {
+    dbUri: 'YOUR_OWN_DB_URI'
+}
