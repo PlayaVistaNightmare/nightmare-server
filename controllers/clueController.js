@@ -8,7 +8,8 @@ const getChunk = (req, res) => {
       let output = clues.slice(+req.params.chunkId, +req.params.chunkId+CHUNKLENGTH);
       res.json(output)
     } else {
-      res.json('Bad Chunk ID')
+      res.json(false);
+      // res.json('Bad Chunk ID')
     }
   })
 }
